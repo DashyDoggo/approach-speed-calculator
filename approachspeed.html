@@ -243,7 +243,8 @@
 
         const approachSpeed = vref + weightAdjustment + windComponent;
 
-        document.getElementById('result').innerText = `${approachSpeed.toFixed(2)} KTS`;
+        document.getElementById('result').innerText = `${Math.round(approachSpeed / 2) * 2} KTS`;
+
     }
 </script>
 
