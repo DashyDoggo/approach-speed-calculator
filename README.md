@@ -20,6 +20,6 @@ This is a simple web-based calculator for determining the approach speed of an A
 
 You can access the A320neo Approach Speed Calculator using this link:
 
-https://dashydoggo.github.io/approach-speed-calculator/a320_approach_speed_calc.html
+[A320n Approach Speed Calculator](https://dashydoggo.github.io/approach-speed-calculator/a320_approach_speed_calc.html)
 
 
