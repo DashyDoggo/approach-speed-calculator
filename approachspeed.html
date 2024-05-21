@@ -186,66 +186,66 @@
 
 <script>
     function calculateApproachSpeed() {
-        const vref = parseFloat(document.getElementById('vref').value);
-        const weight = parseFloat(document.getElementById('weight').value);
-        const standardWeight = parseFloat(document.getElementById('standardWeight').value);
-        const windSpeed = parseFloat(document.getElementById('windSpeed').value);
-        const windDirection = parseFloat(document.getElementById('windDirection').value);
-        const runwayHeading = parseFloat(document.getElementById('runwayHeading').value);
+    const vref = parseFloat(document.getElementById('vref').value);
+    const weight = parseFloat(document.getElementById('weight').value);
+    const standardWeight = parseFloat(document.getElementById('standardWeight').value);
+    const windSpeed = parseFloat(document.getElementById('windSpeed').value);
+    const windDirection = parseFloat(document.getElementById('windDirection').value);
+    const runwayHeading = parseFloat(document.getElementById('runwayHeading').value);
 
-        let valid = true;
-        if (isNaN(vref) || vref <= 0) {
-            document.getElementById('vref').classList.add('error');
-            valid = false;
-        } else {
-            document.getElementById('vref').classList.remove('error');
-        }
-        if (isNaN(weight) || weight <= 0) {
-            document.getElementById('weight').classList.add('error');
-            valid = false;
-        } else {
-            document.getElementById('weight').classList.remove('error');
-        }
-        if (isNaN(standardWeight) || standardWeight <= 0) {
-            document.getElementById('standardWeight').classList.add('error');
-            valid = false;
-        } else {
-            document.getElementById('standardWeight').classList.remove('error');
-        }
-        if (isNaN(windSpeed) || windSpeed < 0) {
-            document.getElementById('windSpeed').classList.add('error');
-            valid = false;
-        } else {
-            document.getElementById('windSpeed').classList.remove('error');
-        }
-        if (isNaN(windDirection) || windDirection < 0 || windDirection > 360) {
-            document.getElementById('windDirection').classList.add('error');
-            valid = false;
-        } else {
-            document.getElementById('windDirection').classList.remove('error');
-        }
-        if (isNaN(runwayHeading) || runwayHeading < 0 || runwayHeading > 360) {
-            document.getElementById('runwayHeading').classList.add('error');
-            valid = false;
-        } else {
-            document.getElementById('runwayHeading').classList.remove('error');
-        }
-
-        if (!valid) {
-            document.getElementById('result').innerText = "Please fill in all fields correctly.";
-            return;
-        }
-
-        const weightAdjustment = ((weight - standardWeight) / 1000) * 1;
-
-        const windAngle = Math.abs(windDirection - runwayHeading);
-        const windComponent = windSpeed * Math.cos(windAngle * (Math.PI / 180));
-
-        const approachSpeed = vref + weightAdjustment + windComponent;
-
-        document.getElementById('result').innerText = `${Math.round(approachSpeed / 2) * 2} KTS`;
-
+    let valid = true;
+    if (isNaN(vref) || vref <= 0) {
+        document.getElementById('vref').classList.add('error');
+        valid = false;
+    } else {
+        document.getElementById('vref').classList.remove('error');
     }
+    if (isNaN(weight) || weight <= 0) {
+        document.getElementById('weight').classList.add('error');
+        valid = false;
+    } else {
+        document.getElementById('weight').classList.remove('error');
+    }
+    if (isNaN(standardWeight) || standardWeight <= 0) {
+        document.getElementById('standardWeight').classList.add('error');
+        valid = false;
+    } else {
+        document.getElementById('standardWeight').classList.remove('error');
+    }
+    if (isNaN(windSpeed) || windSpeed < 0) {
+        document.getElementById('windSpeed').classList.add('error');
+        valid = false;
+    } else {
+        document.getElementById('windSpeed').classList.remove('error');
+    }
+    if (isNaN(windDirection) || windDirection < 0 || windDirection > 360) {
+        document.getElementById('windDirection').classList.add('error');
+        valid = false;
+    } else {
+        document.getElementById('windDirection').classList.remove('error');
+    }
+    if (isNaN(runwayHeading) || runwayHeading < 0 || runwayHeading > 360) {
+        document.getElementById('runwayHeading').classList.add('error');
+        valid = false;
+    } else {
+        document.getElementById('runwayHeading').classList.remove('error');
+    }
+
+    if (!valid) {
+        document.getElementById('result').innerText = "Please fill in all fields correctly.";
+        return;
+    }
+
+    const weightAdjustment = ((weight - standardWeight) / 1000) * 1;
+
+    const windAngle = Math.abs(windDirection - runwayHeading);
+    const windComponent = windSpeed * Math.cos(windAngle * (Math.PI / 180));
+
+    const approachSpeed = vref + weightAdjustment + windComponent;
+
+    document.getElementById('result').innerText = `${Math.round(approachSpeed / 2) * 2} KTS`;
+}
+
 </script>
 
 </body>
